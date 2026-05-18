@@ -14,4 +14,5 @@ Route::get('/booking/schedule', [BookingController::class, 'schedule'])->name('b
 Route::get('/booking/{villa}', [BookingController::class, 'create'])->name('booking.create');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/payment/{booking}', [PaymentController::class, 'show'])->name('payment.show');
+Route::get('/booking/{booking}/receipt', [BookingController::class, 'receipt'])->name('booking.receipt');
 Route::post('/midtrans/callback', [PaymentController::class, 'callback'])->name('midtrans.callback');

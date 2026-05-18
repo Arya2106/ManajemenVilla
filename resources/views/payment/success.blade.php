@@ -276,8 +276,8 @@
 
     {{-- ACTIONS --}}
     <div class="actions">
-        <a href="/" class="btn btn-outline">Kembali ke Beranda</a>
-        <a href="{{ route('booking.create', $booking->villa_id) }}" class="btn btn-primary">Booking Lagi</a>
+        <a href="{{ route('booking.receipt', $booking->id) }}" target="_blank" class="btn btn-primary" style="flex: 2;">Cetak Kwitansi</a>
+        <a href="/" class="btn btn-outline" style="flex: 1;">Beranda</a>
     </div>
 
 </div>

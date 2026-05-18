@@ -84,6 +84,18 @@ public function pending(Request $request)
     return view('payment.pending', compact('booking'));
 }
 
+public function receipt(Booking $booking)
+{
+    $booking->load('guest', 'villa', 'payments');
+    
+    // Only allow printing receipt if paid
+    if ($booking->status !== 'paid') {
+        return redirect()->route('booking.schedule')->with('error', 'Booking belum dibayar.');
+    }
+
+    return view('payment.receipt', compact('booking'));
+}
+
 public function schedule ()
 {
     $villa = Villa::with('villa_photos')->firstOrFail();
